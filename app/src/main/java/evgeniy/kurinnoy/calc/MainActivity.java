@@ -15,6 +15,8 @@ import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Vibrator vbr;
     private static final String TAG = "CALC";
     private boolean vibrate;
-     ;
+    private boolean toast;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
             mainText.setText(mainText.getText() + text);
             mainlist.add(text);
         }
+        if (((Button) v).getText().equals("log"))
+            showToast(getString(R.string.toast));
         vibration(vibrate);
     }
 
@@ -321,9 +325,16 @@ public class MainActivity extends AppCompatActivity {
     private void setConfig() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         vibrate = prefs.getBoolean("vibration", true);
+        toast = prefs.getBoolean("toast", true);
     }
     public void prefButtonAction(View v){
         Intent intent = new Intent(getBaseContext(), SettingsActivity.class);
         startActivity(intent);
+    }
+    private void showToast(String message){
+        if(!toast) return;
+        Toast t = Toast.makeText(getApplicationContext(),
+                message, Toast.LENGTH_SHORT);
+        t.show();
     }
 }
