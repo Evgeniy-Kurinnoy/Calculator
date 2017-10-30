@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Calc</string>
+    <string name="logFormat">Формат логарифма XlogY где Х - основание Y-число</string>
+    <string name="error">Ошибка</string>
+    <string name="vibration">Вибрация</string>
+    <string name="title_activity_settings">Настройки</string>
+    <string name="sound">Звук</string>
+</resources>
