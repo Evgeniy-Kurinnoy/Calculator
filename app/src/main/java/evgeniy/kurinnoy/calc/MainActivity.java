@@ -5,15 +5,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
 import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,9 +25,10 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     private TextView mainText, result;
     private ArrayList<String> mainlist;
+    private TableLayout moreFunc;
     private int countBracket=0;
     private Vibrator vbr;
     private static final String TAG = "CALC";
@@ -35,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+       // moreFunc = (TableLayout) findViewById(R.id.moreFunc);
         mainText = (TextView) findViewById(R.id.mainText);
         mainlist = new ArrayList<String>(10);
         result = (TextView) findViewById(R.id.result);
@@ -91,19 +96,23 @@ public class MainActivity extends AppCompatActivity {
         vibration(vibrate);
     }
 
-    public void operationButtonListener(View v){
-        if (mainlist.isEmpty())
+    public void operationButtonListener(View v) {
+
+        if (mainlist.isEmpty()){
+            if (v.getId() == R.id.log)
+                showToast(getString(R.string.logFormat));
             return;
+    }
         if(v == null || !(v instanceof Button)) {
             return;
         }
         String text = ((Button)v).getText().toString();
+
         if (isNumeric(mainlist.get(mainlist.size()-1)) || mainlist.get(mainlist.size()-1).equals(")")) {
             mainText.setText(mainText.getText() + text);
             mainlist.add(text);
-        }
-        if (((Button) v).getText().equals("log"))
-            showToast(getString(R.string.toast));
+        } else if (v.getId() == R.id. log)
+            showToast(getString(R.string.logFormat));
         vibration(vibrate);
     }
 
@@ -337,4 +346,6 @@ public class MainActivity extends AppCompatActivity {
                 message, Toast.LENGTH_SHORT);
         t.show();
     }
+
+
 }

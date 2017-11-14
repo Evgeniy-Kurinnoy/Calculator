@@ -5,7 +5,7 @@
         android:key="vibration"
         android:title="@string/vibration" />
     <SwitchPreference
-        android:defaultValue="false"
+        android:defaultValue="true"
         android:key="toast"
         android:title="@string/toast" />
 

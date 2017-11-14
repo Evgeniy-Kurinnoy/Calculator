@@ -317,14 +317,12 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="2dp"
         android:paddingBottom="0dp"
         android:paddingTop="0dp"
-        android:text="@string/logFormat"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="2dp"
-        android:layout_marginEnd="2dp" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/debugText"

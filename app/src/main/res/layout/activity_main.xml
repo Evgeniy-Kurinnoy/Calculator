@@ -2,11 +2,12 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="evgeniy.kurinnoy.calc.MainActivity"
-    tools:layout_editor_absoluteY="25dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/textView2"
@@ -14,10 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
         android:paddingBottom="0dp"
         android:paddingTop="0dp"
-        android:text="@string/logFormat"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintLeft_toLeftOf="parent" />
@@ -33,6 +32,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
@@ -43,8 +43,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/debugText"
-        app:layout_constraintVertical_bias="0.166"
-        android:layout_marginEnd="8dp">
+        app:layout_constraintVertical_bias="0.166">
 
         <TextView
             android:id="@+id/mainText"
@@ -98,6 +97,7 @@
         app:layout_constraintRight_toRightOf="parent">
 
         <TableRow
+            android:id="@+id/tr1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="0dp"
@@ -158,6 +158,7 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/tr2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="0dp"
@@ -218,6 +219,7 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/tr3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="0dp"
@@ -278,6 +280,7 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/tr4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="0dp">
@@ -337,6 +340,7 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/tr5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="0dp">
@@ -395,18 +399,38 @@
 
         </TableRow>
     </TableLayout>
-
+<!--
     <TableLayout
-        android:id="@+id/tableLayout2"
+        android:id="@+id/moreFunc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="408dp"
         android:layout_weight="0.70"
         android:background="@color/colorAccent"
         android:padding="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="-11dp"
-        android:layout_marginLeft="352dp"
-        app:layout_constraintLeft_toLeftOf="@+id/tableLayout">
+        app:layout_constraintStart_toStartOf="@+id/tableLayout">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:padding="0dp">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="deleteAllButtonListener"
+                android:padding="0dp"
+                android:text="^"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="6dp"
+                tools:layout_editor_absoluteY="249dp" />
+
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
@@ -420,35 +444,12 @@
                 android:layout_height="70dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:onClick="deleteAllButtonListener"
-                android:padding="0dp"
-                android:text="^"
-                android:textSize="20sp"
-                tools:layout_editor_absoluteX="6dp"
-                tools:layout_editor_absoluteY="249dp" />
-
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="0dp"
-            android:padding="0dp">
-
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
                 android:onClick="numberButtonListener"
                 android:padding="0dp"
-                android:text="√"
+                android:text="log"
                 android:textSize="20sp"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="405dp" />
-
+                tools:layout_editor_absoluteY="203dp" />
 
         </TableRow>
 
@@ -460,27 +461,6 @@
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:onClick="numberButtonListener"
-                android:padding="0dp"
-                android:text="log"
-                android:textSize="20sp"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="203dp" />
-
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="0dp">
-
-            <Button
-                android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_margin="1dp"
@@ -501,7 +481,7 @@
             android:padding="0dp">
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_margin="1dp"
@@ -512,18 +492,39 @@
                 android:textSize="20sp"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="344dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="0dp">
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="numberButtonListener"
+                android:padding="0dp"
+                android:text="0"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="405dp" />
+
         </TableRow>
     </TableLayout>
-
+-->
     <ImageButton
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:onClick="prefButtonAction"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_settings_black_24dp"
-        android:layout_marginEnd="8dp" />
+        app:srcCompat="@drawable/ic_settings_black_24dp" />
 
 </android.support.constraint.ConstraintLayout>
